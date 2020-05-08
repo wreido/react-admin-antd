@@ -1,5 +1,7 @@
 import React from 'react'
-import { Route } from "react-router-dom"
+import { Route } from 'react-router-dom'
+import MyLayout from '@/components/layout/'
+
 // 渲染当前组件
 export const RouteWithSubRoutes = route => (
   <Route
@@ -13,4 +15,10 @@ export const RouteWithSubRoutes = route => (
   />
 )
 
-export const RenderRoutes = ({ routes }) => { return (routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)) };
+export const RenderRoutes = ({ routes }) => {
+  return (
+    <MyLayout>
+      {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+    </MyLayout>
+  )
+}

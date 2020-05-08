@@ -45,7 +45,7 @@ class Index extends Component {
           </Header>
           <Content style={{ margin: '0 16px' }}>
             <Crumbs></Crumbs>
-            <Main></Main>
+            <Main>{this.props.children}</Main>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
