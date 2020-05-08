@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-class Crumbs extends Component {
+class Home extends Component {
   render() {
     return (
       <div>
-        crumbs
+        Home
       </div>
     )
   }
 }
-export default Crumbs;
+export default Home;

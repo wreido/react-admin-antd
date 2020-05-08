@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Layout, Breadcrumb } from 'antd'
+import { Layout } from 'antd'
 import { connect } from 'react-redux'
-import MyMenu from '@/components/menu'
+import MyHeader from '@/components/layout/header'//头部
+import MyMenu from '@/components/layout/menu'//菜单
+import Crumbs from '@/components/layout/crumbs'//面包屑
+import Main from '@/components/layout/main'//面包屑
 import { add, minus } from '@/store/actions/test'
 import './index.less'
 
@@ -38,16 +41,11 @@ class Index extends Component {
         </Sider>
         <Layout className="site-layout">
           <Header className="header" style={{ padding: 0 }}>
-            31313
+            <MyHeader></MyHeader>
           </Header>
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              Bill is a cat.
-            </div>
+            <Crumbs></Crumbs>
+            <Main></Main>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

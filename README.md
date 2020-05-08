@@ -1,68 +1,114 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## react-admin-ant(基于 antd 的后台管理模板)
 
-## Available Scripts
+- react + [antd](https://ant.design/docs/react/introduce-cn) + redux + react-router-dom
 
-In the project directory, you can run:
+## 安装
 
-### `yarn start`
+```
+npx create-react-app react-admin-ant
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## create-react-app 自定义 webpack 配置
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [使用方法](https://www.cnblogs.com/zyl-Tara/p/10635033.html)
 
-### `yarn test`
+```
+yarn add react-app-rewired -D
+yarn add customize-cra -D
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 根目录添加 config-overrides.js
 
-### `yarn build`
+```
+const { override, addWebpackAlias, fixBabelImports, addLessLoader, addDecoratorsLegacy, addWebpackPlugin } = require('customize-cra')
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
+const path = require('path')
+// 关闭sourcemap
+process.env.GENERATE_SOURCEMAP = 'false'
+const resolve = (dir) => path.join(__dirname, dir)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+module.exports = override(
+  // 按需加载组件代码和样式的 babel 插件
+  fixBabelImports('import', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: true
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    // modifyVars: { '@primary-color': '#4e72b8' }
+  }),
+  // 配置路径别名
+  addWebpackAlias({
+    '@': resolve('src')
+  }),
+  // 支持装饰器
+  addDecoratorsLegacy(),
+  // 使用 Day.js 替换 momentjs 优化打包大小
+  addWebpackPlugin(new AntdDayjsWebpackPlugin())
+)
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- 按需加载
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn add babel-plugin-import -D
+```
 
-### `yarn eject`
+- 安装 less 和 less-loader
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+安装less和less-loader
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- day 代替 moment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn add antd-dayjs-webpack-plugin -D
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# 目录结构
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<pre>
+    ├── config       // 项目构建配置、编译
+    │
+    ├── dist                 // 构建包
+    │
+    ├── src                  // 开发目录
+    │
+    │   ├── api              //接口（拦截器）
+    │   │
+    │   ├── bus              //消息机
+    │   │
+    │   ├── assets           // 静态目录
+    │      ├── styles         // 样式资源
+    │      ├── images         // 图片资源
+    │ 
+    │   ├── components       // 组件
+    │       │ 
+    │       ├── modal        // 模态框组件
+    │ 
+    │   ├── pages            // 视图
+    │   │
+    │   ├── pubbliPage       // 分包视图
+    │   │
+    │   ├── store            // mobx状态管理
+    │   │
+    │   ├── utile            // 工具库
+    │      ├── enumList.js    // 字典枚举
+    │      │ 
+    │      ├── index.js       // 公共方法
+    │      │ 
+    │      ├── ossProcess.js  // oss图片处理
+    │      │ 
+    │      ├── qqmap-wx-jssdk.min.js  // 腾讯地图 
+    │
+    ├── package.json         // 项目配置文件
+    │
+    ├── .eslintrc.js         // Eslint代码规范配置
+    │
+    ├── .gitignore           // 项目忽略文件配置
+    │
+    ├── README.md            // 仓库说明
+    
+</pre>
