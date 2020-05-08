@@ -1,6 +1,7 @@
 import { ADD, MINUS } from '../constants/test'
 
 const INITIAL_STATE = {
+  slidecollapsed: false,
   num: 0
 }
 
