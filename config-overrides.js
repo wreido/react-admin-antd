@@ -14,7 +14,7 @@ module.exports = override(
   }),
   addLessLoader({
     javascriptEnabled: true,
-    modifyVars: { '@primary-color': '#4e72b8' }
+    // modifyVars: { '@primary-color': '#4e72b8' }
   }),
   // 配置路径别名
   addWebpackAlias({
