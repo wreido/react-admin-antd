@@ -66,3 +66,30 @@ yarn add babel-plugin-import -D
 ```
 yarn add antd-dayjs-webpack-plugin -D
 ```
+
+## 代理
+
+```
+yarn add http-proxy-middleware -D
+```
+
+- 根目录添加 setupProxy.js
+
+```
+const proxy = require('http-proxy-middleware')
+
+module.exports = function (app) {
+  app.use(
+    proxy('/baseApis', {
+      // 目标代理服务器地址
+      target: 'http://xx.xx.xx.xx:8000/',
+      // 是否允许跨域
+      changeOrigin: true,
+      // 重写接口
+      pathRewrite: {
+        '^/baseApis': 'baseApis'
+      }
+    })
+  )
+}
+```
