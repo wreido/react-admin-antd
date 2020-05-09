@@ -5,7 +5,7 @@
 ## 安装
 
 ```
-npx create-react-app react-admin-ant
+npx create-react-app react-admin-antd
 ```
 
 ## create-react-app 自定义 webpack 配置

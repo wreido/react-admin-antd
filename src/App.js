@@ -16,7 +16,7 @@ class App extends Component {
           {RenderRoutes({ routes: mainConfig, authed: this.props.login.isLogin, authPath: '/login' })}
         </div>
       </Router>
-    );
+    )
   }
 }
 
