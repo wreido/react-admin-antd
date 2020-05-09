@@ -1,17 +1,34 @@
-import Login from '@/views/login/index'
-import Home from '@/views/home/index'
-import Test from '@/views/test/index'
+import React from 'react'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import MyLayout from '@/components/layout'
+import Login from '@/views/login'
 
-export const main = [
-  { path: '/login', name: '登录', requiresAuth: false, component: Login },
-  { path: '/', exact: true, name: '首页', requiresAuth: true, component: Home },
-  { path: '/test', exact: true, name: 'test', requiresAuth: true, component: Test }
-]
+const RouteWithSubRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
+  <Switch {...switchProps}>
+    {routes.map((route, i) => (
+      <Route
+        key={route.key || i}
+        path={route.path}
+        exact={route.exact}
+        strict={route.strict}
+        render={(props) => {
+          if (!route.requiresAuth || authed || route.path === authPath) {
+            return <route.component {...props} {...extraProps} route={route} />
+          }
+          return <Redirect to={{ pathname: authPath, state: { from: props.location } }} />
+        }}
+      />
+    ))}
+  </Switch>
+) : null
 
-export const menus = [
-  // 菜单相关路由
-]
-
-export const routerConfig = {
-  main, menus
+export const RenderRoutes = ({ routes, authed, authPath }) => {
+  return (
+    <Switch>
+      <Route exact path="/login" component={withRouter(Login)} />
+      <MyLayout>
+        {RouteWithSubRoutes(routes, authed, authPath)}
+      </MyLayout>
+    </Switch>
+  )
 }

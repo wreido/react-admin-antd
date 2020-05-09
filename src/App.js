@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from "react-router-dom"
-import { main as mainConfig } from '@/router/index'
-import { RenderRoutes } from '@/router/utils'
+import { main as mainConfig } from '@/router/router'
+import { RenderRoutes } from '@/router'
 import { connect } from 'react-redux'
 
 @connect(({ login }) => ({
