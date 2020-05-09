@@ -3,7 +3,7 @@ const menuList = [
   {
     title: '首页',
     icon: 'home',
-    path: '/home'
+    path: '/'
   },
   {
     title: '测试',
