@@ -73,21 +73,21 @@ yarn add antd-dayjs-webpack-plugin -D
 yarn add http-proxy-middleware -D
 ```
 
-- 根目录添加 setupProxy.js
+- src 目录添加 setupProxy.js
 
 ```
-const proxy = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 module.exports = function (app) {
   app.use(
-    proxy('/baseApis', {
+    createProxyMiddleware('/yxrweb', {
       // 目标代理服务器地址
-      target: 'http://xx.xx.xx.xx:8000/',
+      target: 'http://mall-test.yrymall.cn/yxrweb/',
       // 是否允许跨域
       changeOrigin: true,
       // 重写接口
       pathRewrite: {
-        '^/baseApis': 'baseApis'
+        '^/yxrweb': '/'
       }
     })
   )
