@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd'
 import { setIsLogin } from '@/store/actions/login'
+import $fetch, { $api } from '@/api'
 
 @connect(({ login }) => ({
   login
@@ -15,6 +16,7 @@ class Home extends Component {
 
   componentDidMount() {
     console.log(this.props.login)
+    $fetch($api.bindLeader, { a: 1 })
   }
 
   outLogin = () => {

@@ -1,4 +1,4 @@
-## react-admin-ant(基于 antd 的后台管理模板)
+## react-admin-antd(基于 antd 的后台管理模板)
 
 - react + [antd](https://ant.design/docs/react/introduce-cn) + redux + react-router-dom
 
