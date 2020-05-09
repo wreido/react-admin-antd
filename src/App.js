@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from "react-router-dom"
-import { Provider } from 'react-redux'
 import { main as mainConfig } from '@/router/index'
 import { RenderRoutes } from '@/router/utils'
-import store from '@/store'
+import { connect } from 'react-redux'
+
+@connect(({ login }) => ({
+  login
+}))
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-            <RenderRoutes routes={mainConfig}></RenderRoutes>
-          </div>
-        </Router>
-      </Provider>
+      <Router>
+        <div className="App">
+          {RenderRoutes({ routes: mainConfig, authed: this.props.login.isLogin, authPath: '/login' })}
+        </div>
+      </Router>
     );
   }
 }

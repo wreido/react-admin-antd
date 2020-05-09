@@ -19,7 +19,7 @@ class Login extends Component {
 
   login = () => {
     this.props.dispatch(setIsLogin(true))
-    this.props.history.push('/test')
+    this.props.history.push('/')
   }
 
   render() {

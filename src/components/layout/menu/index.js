@@ -25,7 +25,7 @@ class MyMenu extends Component {
             key={item.path}
             title={
               <span>
-                <Icon type={item.icon} />
+                {item.icon && <Icon type={item.icon} />}
                 <span>{item.title}</span>
               </span>
             }
@@ -39,7 +39,7 @@ class MyMenu extends Component {
           <NavLink to={item.path || ''}>
             {item.icon || item.icon === '' ? (
               <span>
-                <Icon type={item.icon} />
+                {item.icon && <Icon type={item.icon} />}
                 <span>{item.title}</span>
               </span>
             ) : (

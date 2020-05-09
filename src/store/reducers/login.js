@@ -3,7 +3,7 @@ import {
 } from '../constants/login'
 
 const INITIAL_STATE = {
-  isLogin: true,
+  isLogin: false,
 }
 
 export default function login(state = INITIAL_STATE, action) {

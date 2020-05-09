@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Button } from 'antd'
+import { setIsLogin } from '@/store/actions/login'
 
 @connect(({ login }) => ({
   login
 }))
-
 
 class Home extends Component {
   constructor(props) {
@@ -16,10 +17,15 @@ class Home extends Component {
     console.log(this.props.login)
   }
 
+  outLogin = () => {
+    this.props.dispatch(setIsLogin(false))
+  }
+
   render() {
     return (
       <div>
         Home
+        <Button onClick={this.outLogin}>退出登录</Button>
       </div>
     )
   }
