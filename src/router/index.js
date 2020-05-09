@@ -1,9 +1,7 @@
 import React from 'react'
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
-import MyLayout from '@/components/layout'
-import Login from '@/views/login'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
-const RouteWithSubRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
+export const RenderRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
   <Switch {...switchProps}>
     {routes.map((route, i) => (
       <Route
@@ -21,14 +19,3 @@ const RouteWithSubRoutes = (routes, authed, authPath = '/login', extraProps = {}
     ))}
   </Switch>
 ) : null
-
-export const RenderRoutes = ({ routes, authed, authPath }) => {
-  return (
-    <Switch>
-      <Route exact path="/login" component={withRouter(Login)} />
-      <MyLayout>
-        {RouteWithSubRoutes(routes, authed, authPath)}
-      </MyLayout>
-    </Switch>
-  )
-}
