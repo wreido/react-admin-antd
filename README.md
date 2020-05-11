@@ -1,6 +1,6 @@
 ## react-admin-antd(基于 antd 的后台管理模板)
 
-- react + [antd](https://ant.design/docs/react/introduce-cn) + redux + react-router-dom
+- [react](https://react.docschina.org/docs/getting-started.html) + [antd](https://ant.design/docs/react/introduce-cn) + [redux](https://www.redux.org.cn) + [react-router-dom](https://blog.csdn.net/debbyDeng/article/details/84555817)([react-router](http://react-guide.github.io/react-router-cn/docs/guides/basics/Histories.html))
 
 ## 安装
 
@@ -92,4 +92,32 @@ module.exports = function (app) {
     })
   )
 }
+```
+
+## [鉴权](https://juejin.im/post/5d6352116fb9a06ae8361932)
+
+- 高阶函数
+
+```
+import React from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+
+export const RenderRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
+  <Switch {...switchProps}>
+    {routes.map((route, i) => (
+      <Route
+        key={route.key || i}
+        path={route.path}
+        exact={route.exact}
+        strict={route.strict}
+        render={(props) => {
+          if (!route.requiresAuth || authed || route.path === authPath) {
+            return <route.component {...props} {...extraProps} route={route} />
+          }
+          return <Redirect to={{ pathname: authPath, state: { from: props.location } }} />
+        }}
+      />
+    ))}
+  </Switch>
+) : null
 ```

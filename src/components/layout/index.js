@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import MyHeader from '@/components/layout/header'//头部
 import MyMenu from '@/components/layout/menu'//菜单
 import Crumbs from '@/components/layout/crumbs'//面包屑
@@ -53,4 +54,4 @@ class Index extends Component {
     )
   }
 }
-export default Index;
+export default withRouter(Index)

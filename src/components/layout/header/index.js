@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 @connect(({ test }) => ({ test }))
@@ -17,4 +18,4 @@ class MyHeader extends Component {
     )
   }
 }
-export default MyHeader
+export default withRouter(MyHeader)

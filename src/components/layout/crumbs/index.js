@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Breadcrumb } from 'antd'
 
 
@@ -12,4 +13,4 @@ class Crumbs extends Component {
     )
   }
 }
-export default Crumbs
+export default withRouter(Crumbs)

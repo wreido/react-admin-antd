@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import './index.less'
 
 class MyMain extends Component {
@@ -15,4 +16,4 @@ class MyMain extends Component {
     )
   }
 }
-export default MyMain;
+export default withRouter(MyMain)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 import { connect } from "react-redux"
 import menuList from '@/config/menu'
@@ -53,10 +53,10 @@ class MyMenu extends Component {
 
   render() {
     return (
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+      <Menu theme="dark" selectedKeys={[this.props.history.location.pathname]} defaultSelectedKeys={['1']} mode="inline">
         {this.state.menuTreeNode}
       </Menu>
     )
   }
 }
-export default MyMenu
+export default withRouter(MyMenu)

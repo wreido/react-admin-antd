@@ -15,13 +15,12 @@ class Storage {
       if (typeof key !== 'undefined' && key !== null && typeof key === 'string') {
         let that_ = this
         const values = await that_.asyncGet(key)
-        const values_1 = await that_.asyncGet(key)
         /** *************CALLBACK FUNC******************
         *   local storage is sunc and we set a callbacn function
         *  	for getting live values
         *
         *********************************************/
-        callback(values_1)
+        callback(values)
       } else {
         callback(null)
       }
@@ -41,7 +40,7 @@ class Storage {
     let that_ = this
     if (typeof key !== 'undefined' && key !== null && typeof values === 'object') {
       window[that_.core].setItem(key, JSON.stringify(values))
-    } else if (typeof values === 'string') {
+    } else if (values !== '' && values !== void 0) {
       window[that_.core].setItem(key, values)
     } else {
       console.debug('undefined or null key on Storage.' + this.core + '.set func')
