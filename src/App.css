@@ -1,0 +1,13 @@
+.env {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff8d00;
+  height: 18px;
+  padding: 0 10px;
+  color: #ffffff;
+  font-size: 12px;
+}

@@ -1,3 +1,6 @@
+/* 
+* 首页
+*/
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd'
@@ -15,7 +18,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.login)
     $fetch($api.bindLeader, { a: 1 })
   }
 
@@ -25,7 +27,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className='homeWarp'>
         Home
         <Button onClick={this.outLogin}>退出登录</Button>
       </div>

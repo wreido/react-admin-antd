@@ -1,8 +1,11 @@
+/* 
+* 测试
+*/
 import React, { Component } from 'react';
 class Text extends Component {
   render() {
     return (
-      <div>
+      <div className='textWarp'>
         Text
       </div>
     )

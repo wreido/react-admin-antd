@@ -1,3 +1,6 @@
+/* 
+* 菜单
+*/
 import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
@@ -53,7 +56,7 @@ class MyMenu extends Component {
 
   render() {
     return (
-      <Menu theme="dark" selectedKeys={[this.props.history.location.pathname]} defaultSelectedKeys={['1']} mode="inline">
+      <Menu className='menuWarp' theme="dark" selectedKeys={[this.props.history.location.pathname]} defaultSelectedKeys={['1']} mode="inline">
         {this.state.menuTreeNode}
       </Menu>
     )

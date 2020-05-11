@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "dotenv -e .env.production react-app-rewired build",
+    "build:testing": "dotenv -e .env.testing react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
@@ -38,6 +39,7 @@
     "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
+    "dotenv-cli": "^3.1.0",
     "http-proxy-middleware": "^1.0.3",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",

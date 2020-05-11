@@ -1,3 +1,6 @@
+/* 
+* 登录
+*/
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd'
@@ -18,14 +21,17 @@ class Login extends Component {
   }
 
   login = () => {
+    //设置登录状态
     this.props.dispatch(setIsLogin(true))
     this.props.history.push('/')
   }
 
   render() {
-    return <div>
-      <Button onClick={this.login}>Login</Button>
-    </div>
+    return (
+      <div className='loginWarp'>
+        <Button onClick={this.login}>Login</Button>
+      </div>
+    )
   }
 }
 export default Login

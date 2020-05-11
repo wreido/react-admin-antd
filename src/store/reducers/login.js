@@ -4,11 +4,12 @@ import {
 } from '../constants/login'
 
 const INITIAL_STATE = {
-  isLogin: (sessionStorage.get('isLogin') && JSON.parse(sessionStorage.get('isLogin'))) || false,
+  isLogin: (sessionStorage.get('isLogin') && JSON.parse(sessionStorage.get('isLogin'))) || false,//是否登录
 }
 
 export default function login(state = INITIAL_STATE, action) {
   switch (action.type) {
+    //设置登录状态
     case SET_ISLOGIN_STATUS:
       sessionStorage.set('isLogin', JSON.stringify(action.payload.isLogin))
 

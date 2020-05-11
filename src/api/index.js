@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { message } from 'antd'
-// import { Toast } from 'vant'
 
 const $fetch = function fetch(url, data = {}, options = { timeout: 5000, config: {} }) {
   // if (data.constructor !== Object) return showErrorMsg('参数非法')

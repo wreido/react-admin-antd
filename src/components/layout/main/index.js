@@ -1,3 +1,6 @@
+/* 
+* 页面容器
+*/
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import './index.less'
@@ -10,7 +13,7 @@ class MyMain extends Component {
 
   render() {
     return (
-      <div className="main" style={{ padding: 24, minHeight: 360 }}>
+      <div className="mainWarp" style={{ padding: 24, minHeight: 360 }}>
         {this.props.children}
       </div>
     )
