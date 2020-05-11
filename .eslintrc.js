@@ -42,11 +42,14 @@ module.exports = {
     "react/jsx-no-bind": [0],
     "react/prefer-stateless-function": [0],
     "react/prop-types": [0],   // 这些react开头的都是针对react独有的
-    "require-yield": [1]
+    "require-yield": [1],
+    "no-console": "off"
   },
   "globals": {
     "document": true,
     "localStorage": true,
-    "window": true
+    "window": true,
+    "test": true,
+    "expect": true
   }
 };
