@@ -1,4 +1,18 @@
-serviceWorker.js
 setupProxy.js
 setupTests.js
 storage.js
+# node_modules
+node_modules/
+ 
+# build
+build/
+ 
+# dist
+dist/
+ 
+# serviceWorker
+src/serviceWorker.js
+
+react-admin-antd/
+
+static/
