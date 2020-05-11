@@ -20,6 +20,7 @@ module.exports = {
   plugins: [
     'react',
   ],
+  "parser": "babel-eslint",
   rules: {
     "arrow-body-style": [0],
     "consistent-return": [0],
@@ -43,4 +44,9 @@ module.exports = {
     "react/prop-types": [0],   // 这些react开头的都是针对react独有的
     "require-yield": [1]
   },
+  "globals": {
+    "document": true,
+    "localStorage": true,
+    "window": true
+  }
 };

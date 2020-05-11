@@ -18,7 +18,7 @@ class MyHeader extends Component {
   render() {
     return (
       <div className="headerWarp">
-        12121adad
+        12121adad{this.props.test}
       </div>
     );
   }
