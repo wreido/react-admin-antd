@@ -3,7 +3,7 @@ const menuList = [
   {
     title: '首页',
     icon: 'home',
-    path: '/'
+    path: '/',
   },
   {
     title: '测试',
@@ -13,9 +13,9 @@ const menuList = [
       {
         title: 'test01',
         icon: '',
-        path: '/test'
-      }
-    ]
-  }
-]
-export default menuList
+        path: '/test',
+      },
+    ],
+  },
+];
+export default menuList;

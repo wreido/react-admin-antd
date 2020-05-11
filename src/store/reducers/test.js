@@ -1,23 +1,23 @@
-import { ADD, MINUS } from '../constants/test'
+import { ADD, MINUS } from '../constants/test';
 
 const INITIAL_STATE = {
   slidecollapsed: false,
-  num: 0
-}
+  num: 0,
+};
 
 export default function counter(state = INITIAL_STATE, action) {
   switch (action.type) {
     case ADD:
       return {
         ...state,
-        num: state.num + 1
-      }
+        num: state.num + 1,
+      };
     case MINUS:
       return {
         ...state,
-        num: state.num - 1
-      }
+        num: state.num - 1,
+      };
     default:
-      return state
+      return state;
   }
 }

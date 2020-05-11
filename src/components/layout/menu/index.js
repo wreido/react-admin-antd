@@ -1,23 +1,23 @@
-/* 
+/*
 * 菜单
 */
-import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
-import { Menu, Icon } from 'antd'
-import { connect } from "react-redux"
-import menuList from '@/config/menu'
+import React, { Component } from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
+import { Menu, Icon } from 'antd';
+import { connect } from 'react-redux';
+import menuList from '@/config/menu';
 
-const { SubMenu } = Menu
+const { SubMenu } = Menu;
 
 @connect(({ test }) => ({ test }))
 
 class MyMenu extends Component {
   constructor(props) {
-    super(props)
-    const menuTreeNode = this.renderMenu(menuList)
+    super(props);
+    const menuTreeNode = this.renderMenu(menuList);
     this.state = {
-      menuTreeNode
-    }
+      menuTreeNode,
+    };
   }
 
   renderMenu = (data) => {
@@ -26,40 +26,42 @@ class MyMenu extends Component {
         return (
           <SubMenu
             key={item.path}
-            title={
+            title={(
               <span>
                 {item.icon && <Icon type={item.icon} />}
                 <span>{item.title}</span>
               </span>
-            }
+            )}
           >
             {this.renderMenu(item.children)}
           </SubMenu>
-        )
+        );
       }
       return (
         <Menu.Item title={item.title} key={item.path}>
           <NavLink to={item.path || ''}>
-            {item.icon || item.icon === '' ? (
-              <span>
-                {item.icon && <Icon type={item.icon} />}
-                <span>{item.title}</span>
-              </span>
-            ) : (
-                item.title
-              )}
+            {item.icon || item.icon === ''
+              ? (
+                <span>
+                  {item.icon && <Icon type={item.icon} />}
+                  <span>{item.title}</span>
+                </span>
+              )
+              : (item.title)}
           </NavLink>
         </Menu.Item>
-      )
-    })
+      );
+    });
   }
 
   render() {
+    const { menuTreeNode } = this.state;
+    const { history } = this.props;
     return (
-      <Menu className='menuWarp' theme="dark" selectedKeys={[this.props.history.location.pathname]} defaultSelectedKeys={['1']} mode="inline">
-        {this.state.menuTreeNode}
+      <Menu className="menuWarp" theme="dark" selectedKeys={[history.location.pathname]} defaultSelectedKeys={['1']} mode="inline">
+        {menuTreeNode}
       </Menu>
-    )
+    );
   }
 }
-export default withRouter(MyMenu)
+export default withRouter(MyMenu);

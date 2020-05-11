@@ -1,3 +1,3 @@
 export default {
-  authPath: '/login'
-}
+  authPath: '/login',
+};
