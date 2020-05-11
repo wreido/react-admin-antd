@@ -35,7 +35,7 @@ class MyMenu extends Component {
           >
             {this.renderMenu(item.children)}
           </SubMenu>
-        );
+        )
       }
       return (
         <Menu.Item title={item.title} key={item.path}>
@@ -50,8 +50,8 @@ class MyMenu extends Component {
               )}
           </NavLink>
         </Menu.Item>
-      );
-    });
+      )
+    })
   }
 
   render() {

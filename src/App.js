@@ -1,3 +1,6 @@
+/* 
+* 主视图
+*/
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom"
 import { main as routes } from '@/router/router'
@@ -48,4 +51,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
