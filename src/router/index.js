@@ -10,8 +10,9 @@ export const RenderRoutes = (routes, authed, authPath = '/login') => (routes ? (
         exact={route.exact}
         strict={route.strict}
         render={(props) => {
+          const { history, location, match } = props;
           if (!route.requiresAuth || authed || route.path === authPath) {
-            return <route.component route={route} />;
+            return <route.component history={history} location={location} match={match} route={route} />;
           }
           return <Redirect to={{ pathname: authPath, state: { from: props.location } }} />;
         }}
