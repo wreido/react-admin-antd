@@ -43,7 +43,8 @@ module.exports = {
     "react/prefer-stateless-function": [0],
     "react/prop-types": [0],   // 这些react开头的都是针对react独有的
     "require-yield": [1],
-    "no-console": "off"
+    "no-console": "off",
+    "max-len": ["error", { code: 300 }]
   },
   "globals": {
     "document": true,

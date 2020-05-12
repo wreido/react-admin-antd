@@ -13,6 +13,6 @@ dist/
 # serviceWorker
 src/serviceWorker.js
 
-react-admin-antd/
+react-admin-antd/*.js
 
 static/
