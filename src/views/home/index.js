@@ -8,15 +8,16 @@ import { setIsLogin } from '@/store/actions/login';
 import $fetch, { $api } from '@/api';
 import { columns } from './columns/listColimns';
 
-@connect(({ login }) => ({
-  login,
-}))
+import './index.less';
+
+@connect(({ login }) => ({ login }))
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       columnsRes: columns(this),
+      pageSize: 10,
       data: [
         {
           key: '1', name: 'John Brown', age: 32, tel: '0571-22098909', phone: 18889898989, address: 'New York No. 1 Lake Park',
@@ -41,18 +42,40 @@ class Home extends Component {
     $fetch($api.bindLeader, { a: 1 });
   }
 
+  // 退出登录
   outLogin = () => {
     const { dispatch } = this.props;
     dispatch(setIsLogin(false));
   }
 
+  // 切换分页和条数
+  onChange = (page, pageSize) => {
+    console.log(page, pageSize);
+    this.setState({ pageSize });
+  }
+
   render() {
-    const { columnsRes, data } = this.state;
+    const { columnsRes, data, pageSize } = this.state;
     return (
       <div className="homeWarp">
         Home
         <Button onClick={this.outLogin}>退出登录</Button>
-        <Table columns={columnsRes} dataSource={data} bordered />
+        <div className="table-box">
+          <Table
+            columns={columnsRes}
+            dataSource={data}
+            bordered
+            tableLayout="fixed"
+            pagination={{
+              position: ['bottomCenter'],
+              total: 500,
+              onChange: this.onChange,
+              onShowSizeChange: this.onChange,
+              pageSizeOptions: ['10', '20', '50', '100'],
+              pageSize,
+            }}
+          />
+        </div>
       </div>
     );
   }

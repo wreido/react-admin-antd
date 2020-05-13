@@ -25,6 +25,10 @@ class Index extends Component {
     };
   }
 
+  onCollapse = () => {
+    this.setState((prveState) => ({ collapsed: !prveState.collapsed }));
+  }
+
   add = () => {
     const { dispatch } = this.props;
     dispatch(add());
