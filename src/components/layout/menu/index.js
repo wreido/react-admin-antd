@@ -5,9 +5,12 @@ import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import Icon from '@/components/pages/icon';
 
 import menuList from '@/config/menu';
+
+import './index.less';
 
 const { SubMenu } = Menu;
 
@@ -29,10 +32,10 @@ class MyMenu extends Component {
           <SubMenu
             key={item.path}
             title={(
-              <span>
-                {item.icon && <Icon type={item.icon} />}
+              <div className="menu-item">
+                {item.icon && <Icon src={item.icon} />}
                 <span>{item.title}</span>
-              </span>
+              </div>
             )}
           >
             {this.renderMenu(item.children)}
@@ -42,14 +45,10 @@ class MyMenu extends Component {
       return (
         <Menu.Item title={item.title} key={item.path}>
           <NavLink to={item.path || ''}>
-            {item.icon || item.icon === ''
-              ? (
-                <span>
-                  {item.icon && <Icon type={item.icon} />}
-                  <span>{item.title}</span>
-                </span>
-              )
-              : (item.title)}
+            <div className="menu-item">
+              {item.icon && <Icon src={item.icon} />}
+              <span>{item.title}</span>
+            </div>
           </NavLink>
         </Menu.Item>
       );
