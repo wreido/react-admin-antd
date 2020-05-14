@@ -11,7 +11,7 @@ import MyMenu from '@/components/layout/menu';// 菜单
 import Crumbs from '@/components/layout/crumbs';// 面包屑
 import Main from '@/components/layout/main';// 面包屑
 
-import { add, minus } from '@/store/actions/test';
+import { setCollapsed } from '@/store/actions/app';
 
 import './index.less';
 
@@ -19,39 +19,27 @@ const {
   Header, Content, Sider, Footer,
 } = Layout;
 
-@connect(({ test }) => ({
-  test,
+@connect(({ app }) => ({
+  isCollapsed: app.isCollapsed,
 }))
 
 class Index extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      collapsed: false,
-    };
+    this.state = {};
   }
 
   onCollapse = () => {
-    this.setState((prveState) => ({ collapsed: !prveState.collapsed }));
-  }
-
-  add = () => {
-    const { dispatch } = this.props;
-    dispatch(add());
-  }
-
-  minus = () => {
-    const { dispatch } = this.props;
-    dispatch(minus());
+    const { dispatch, isCollapsed } = this.props;
+    dispatch(setCollapsed(!isCollapsed));
   }
 
   render() {
-    const { collapsed } = this.state;
-    const { children } = this.props;
+    const { children, isCollapsed } = this.props;
 
     return (
       <Layout className="layout">
-        <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+        <Sider collapsible collapsed={isCollapsed} onCollapse={this.onCollapse}>
           <div className="logo">
             <h1>logo</h1>
           </div>

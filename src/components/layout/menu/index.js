@@ -14,18 +14,17 @@ import './index.less';
 
 const { SubMenu } = Menu;
 
-@connect(({ test }) => ({ test }))
+@connect(({ app }) => ({
+  isCollapsed: app.isCollapsed,
+}))
 
 class MyMenu extends Component {
   constructor(props) {
     super(props);
-    const menuTreeNode = this.renderMenu(menuList);
-    this.state = {
-      menuTreeNode,
-    };
+    this.state = {};
   }
 
-  renderMenu = (data) => {
+  renderMenu = (data, isCollapsed) => {
     return data.map((item) => {
       if (item.children) {
         return (
@@ -34,7 +33,7 @@ class MyMenu extends Component {
             title={(
               <div className="menu-item">
                 {item.icon && <Icon src={item.icon} />}
-                <span>{item.title}</span>
+                {!isCollapsed && <span>{item.title}</span>}
               </div>
             )}
           >
@@ -44,10 +43,10 @@ class MyMenu extends Component {
       }
       return (
         <Menu.Item title={item.title} key={item.path}>
-          <NavLink to={item.path || ''}>
+          <NavLink className="link" to={item.path || ''}>
             <div className="menu-item">
               {item.icon && <Icon src={item.icon} />}
-              <span>{item.title}</span>
+              {!isCollapsed && <span>{item.title}</span>}
             </div>
           </NavLink>
         </Menu.Item>
@@ -56,11 +55,11 @@ class MyMenu extends Component {
   }
 
   render() {
-    const { menuTreeNode } = this.state;
-    const { history } = this.props;
+    // const { menuTreeNode } = this.state;
+    const { history, isCollapsed } = this.props;
     return (
       <Menu className="menuWarp" theme="dark" selectedKeys={[history.location.pathname]} defaultSelectedKeys={['1']} mode="inline">
-        {menuTreeNode}
+        {this.renderMenu(menuList, isCollapsed)}
       </Menu>
     );
   }
