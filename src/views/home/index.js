@@ -3,11 +3,13 @@
 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Table } from 'antd';
-import { setIsLogin } from '@/store/actions/login';
-import $fetch, { $api } from '@/api';
-import { columns } from './columns/listColimns';
 
+import { Button, Table } from 'antd';
+
+import $fetch, { $api } from '@/api';
+import { setIsLogin } from '@/store/actions/login';
+
+import { columns } from './columns/listColimns';
 import './index.less';
 
 @connect(({ login }) => ({ login }))

@@ -1,12 +1,18 @@
+/*
+* layout入口
+*/
 import React, { Component } from 'react';
-import { Layout } from 'antd';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { Layout } from 'antd';
 import MyHeader from '@/components/layout/header';// 头部
 import MyMenu from '@/components/layout/menu';// 菜单
 import Crumbs from '@/components/layout/crumbs';// 面包屑
 import Main from '@/components/layout/main';// 面包屑
+
 import { add, minus } from '@/store/actions/test';
+
 import './index.less';
 
 const {

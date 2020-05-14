@@ -3,7 +3,9 @@
 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { Button } from 'antd';
+
 import { setIsLogin } from '@/store/actions/login';
 
 @connect(({ login }) => ({

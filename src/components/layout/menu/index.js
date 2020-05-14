@@ -3,8 +3,10 @@
 */
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import { Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
+
+import { Menu, Icon } from 'antd';
+
 import menuList from '@/config/menu';
 
 const { SubMenu } = Menu;
