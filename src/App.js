@@ -5,13 +5,16 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router, Route, Switch, withRouter,
 } from 'react-router-dom';
-import { main as routes } from '@/router/router';
-import { RenderRoutes } from '@/router';
 import { connect } from 'react-redux';
+
 import { setConfigEnv } from '@/store/actions/app';
-import dict from '@/utils/dict';
 import MyLayout from '@/components/layout';
 import Login from '@/views/login';
+
+import { main as routes } from '@/router/router';
+import { RenderRoutes } from '@/router';
+import dict from '@/utils/dict';
+
 import './App.css';
 
 @connect(({ login, app }) => ({
