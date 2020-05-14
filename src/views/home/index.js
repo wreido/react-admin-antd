@@ -2,17 +2,13 @@
 * 首页
 */
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-import { Button, Table } from 'antd';
+import { Table } from 'antd';
 
-import $fetch, { $api } from '@/api';
-import { setIsLogin } from '@/store/actions/login';
+// import $fetch, { $api } from '@/api';
 
 import { columns } from './columns/listColimns';
 import './index.less';
-
-@connect(({ login }) => ({ login }))
 
 class Home extends Component {
   constructor(props) {
@@ -41,13 +37,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    $fetch($api.bindLeader, { a: 1 });
-  }
-
-  // 退出登录
-  outLogin = () => {
-    const { dispatch } = this.props;
-    dispatch(setIsLogin(false));
+    // $fetch($api.bindLeader, { a: 1 });
   }
 
   // 切换分页和条数
@@ -60,8 +50,6 @@ class Home extends Component {
     const { columnsRes, data, pageSize } = this.state;
     return (
       <div className="homeWarp">
-        Home
-        <Button onClick={this.outLogin}>退出登录</Button>
         <div className="table-box">
           <Table
             columns={columnsRes}

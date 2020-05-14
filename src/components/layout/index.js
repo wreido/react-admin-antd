@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import MyHeader from '@/components/layout/header';// 头部
 import MyMenu from '@/components/layout/menu';// 菜单
-import Crumbs from '@/components/layout/crumbs';// 面包屑
 import Main from '@/components/layout/main';// 面包屑
 
 import { setCollapsed } from '@/store/actions/app';
@@ -49,8 +48,7 @@ class Index extends Component {
           <Header className="header" style={{ padding: 0 }}>
             <MyHeader />
           </Header>
-          <Content style={{ margin: '0 16px' }}>
-            <Crumbs />
+          <Content style={{ margin: '16px 16px' }}>
             <Main>{children}</Main>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

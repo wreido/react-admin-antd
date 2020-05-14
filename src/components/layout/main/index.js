@@ -15,7 +15,7 @@ class MyMain extends Component {
   render() {
     const { children } = this.props;
     return (
-      <div className="mainWarp" style={{ padding: 24, minHeight: 360 }}>
+      <div className="mainWarp">
         {children}
       </div>
     );

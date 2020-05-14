@@ -5,6 +5,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { Button } from 'antd';
+
+import { setIsLogin } from '@/store/actions/login';
+
 import './index.less';
 
 @connect(({ test }) => ({ test }))
@@ -15,10 +19,16 @@ class MyHeader extends Component {
     this.state = {};
   }
 
+  // 退出登录
+  outLogin = () => {
+    const { dispatch } = this.props;
+    dispatch(setIsLogin(false));
+  }
+
   render() {
     return (
       <div className="headerWarp">
-        12121adad
+        <Button onClick={this.outLogin}>退出登录</Button>
       </div>
     );
   }
