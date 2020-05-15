@@ -12,8 +12,6 @@ export default function login(state = INITIAL_STATE, action) {
     // 设置登录状态
     case SET_ISLOGIN_STATUS:
       sessionStorage.set('isLogin', JSON.stringify(action.payload.isLogin));
-
-      console.log(`${action.payload.isLogin}`);
       return {
         ...state,
         isLogin: action.payload.isLogin,

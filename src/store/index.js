@@ -11,8 +11,12 @@ const composeEnhancers = typeof window === 'object'
 
 const middlewares = [
   thunkMiddleware,
-  createLogger(),
+  // createLogger(),
 ];
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(createLogger());
+}
 
 function configStore() {
   const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middlewares)));

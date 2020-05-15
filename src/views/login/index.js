@@ -18,10 +18,6 @@ class Login extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   login = () => {
     const { dispatch, history } = this.props;
     // 设置登录状态
