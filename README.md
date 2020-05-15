@@ -1,6 +1,6 @@
-## react-admin-antd(基于 antd 的后台管理模板)
+## react-admin-antd([基于 antd 的后台管理模板](http://120.25.73.68:8888/))
 
-- [react](https://react.docschina.org/docs/getting-started.html) + [antd](https://ant.design/docs/react/introduce-cn) + [redux](https://www.redux.org.cn) + [react-router-dom](https://blog.csdn.net/debbyDeng/article/details/84555817)([react-router](http://react-guide.github.io/react-router-cn/docs/guides/basics/Histories.html))
+-   [react](https://react.docschina.org/docs/getting-started.html) + [antd](https://ant.design/docs/react/introduce-cn) + [redux](https://www.redux.org.cn) + [react-router-dom](https://blog.csdn.net/debbyDeng/article/details/84555817)([react-router](http://react-guide.github.io/react-router-cn/docs/guides/basics/Histories.html))
 
 ## 安装
 
@@ -10,14 +10,14 @@ npx create-react-app react-admin-antd
 
 ## create-react-app 自定义 webpack 配置
 
-- [使用方法](https://www.cnblogs.com/zyl-Tara/p/10635033.html)
+-   [使用方法](https://www.cnblogs.com/zyl-Tara/p/10635033.html)
 
 ```
 yarn add react-app-rewired -D
 yarn add customize-cra -D
 ```
 
-- 根目录添加 config-overrides.js
+-   根目录添加 config-overrides.js
 
 ```
 const { override, addWebpackAlias, fixBabelImports, addLessLoader, addDecoratorsLegacy, addWebpackPlugin } = require('customize-cra')
@@ -49,19 +49,19 @@ module.exports = override(
 )
 ```
 
-- 按需加载
+-   按需加载
 
 ```
 yarn add babel-plugin-import -D
 ```
 
-- 安装 less 和 less-loader
+-   安装 less 和 less-loader
 
 ```
 安装less和less-loader
 ```
 
-- day 代替 moment
+-   day 代替 moment
 
 ```
 yarn add antd-dayjs-webpack-plugin -D
@@ -73,7 +73,7 @@ yarn add antd-dayjs-webpack-plugin -D
 yarn add http-proxy-middleware -D
 ```
 
-- src 目录添加 setupProxy.js
+-   src 目录添加 setupProxy.js
 
 ```
 const { createProxyMiddleware } = require('http-proxy-middleware')
@@ -96,7 +96,7 @@ module.exports = function (app) {
 
 ## [鉴权](https://juejin.im/post/5d6352116fb9a06ae8361932)
 
-- 高阶函数
+-   高阶函数
 
 ```
 import React from 'react'
