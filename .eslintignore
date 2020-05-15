@@ -16,3 +16,5 @@ src/serviceWorker.js
 react-admin-antd/*.js
 
 static/
+
+deploy.js
