@@ -13,7 +13,7 @@ import Login from '@/views/login';
 
 import { main as routes } from '@/router/router';
 import { RenderRoutes } from '@/router';
-import dict from '@/utils/dict';
+import { DICT } from '@/config';
 
 import './App.css';
 
@@ -30,6 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getConfigEnv();
+    console.log(DICT);
   }
 
   // 获取当前环境
@@ -44,11 +45,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {app.ENV === 'testing' && <div className="env">测试环境</div>}
+          {app.ENV === 'testing' && (<div className="env">{`测试环境 ${DICT.APP_INFO.APP_VERSION}`}</div>)}
           <Switch>
             <Route exact path="/login" component={withRouter(Login)} />
             <MyLayout>
-              {RenderRoutes(routes, authed, dict.authPath)}
+              {RenderRoutes(routes, authed, DICT.AUTH_PATH)}
             </MyLayout>
           </Switch>
         </div>

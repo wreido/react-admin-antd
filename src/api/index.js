@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { message } from 'antd';
+import { DICT } from '@/config';
 
-const $fetch = function fetch(url, data = {}, options = { timeout: 5000, config: {} }) {
+const $fetch = function fetch(url, data = {}, options = { timeout: DICT.REQUEST_TIME_OUT, config: {} }) {
   // if (data.constructor !== Object) return showErrorMsg('参数非法')
   if (options.constructor !== Object) return showErrorMsg('配置非法');
 
@@ -26,7 +27,7 @@ const $fetch = function fetch(url, data = {}, options = { timeout: 5000, config:
         console.warn(response);
 
         // 拦截非200业务状态
-        if (response.data.status !== 200) {
+        if (response.data.status !== DICT.HTTP.STARUS_CODE.SUCCESS) {
           showErrorMsg(response.data.msg);
           reject(response);
         }
