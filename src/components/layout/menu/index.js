@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Menu } from 'antd';
 import Icon from '@/components/pages/icon';
 
+import { setCrumbs } from '@/store/actions/app';
 import menuList from '@/config/menu';
 
 import './index.less';
@@ -22,6 +23,11 @@ class MyMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  setCrumbs = (route) => {
+    const { dispatch } = this.props;
+    dispatch(setCrumbs('add', [route]));
   }
 
   renderMenu = (data, isCollapsed) => {
@@ -42,7 +48,7 @@ class MyMenu extends Component {
         );
       }
       return (
-        <Menu.Item title={item.title} key={item.path}>
+        <Menu.Item title={item.title} key={item.path} onClick={this.setCrumbs.bind(this, item)}>
           <NavLink className="link" to={item.path || ''}>
             <div className="menu-item">
               {item.icon && <Icon src={item.icon} />}

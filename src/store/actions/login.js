@@ -1,3 +1,6 @@
+/*
+* 登录相关
+*/
 import {
   SET_ISLOGIN_STATUS,
 } from '../constants/login';

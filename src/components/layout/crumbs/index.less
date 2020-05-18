@@ -1,0 +1,19 @@
+.crumb-title {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 10px;
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+        color: red;
+    }
+    &:hover {
+        color: #1890ff;
+        .close {
+            display: block;
+        }
+    }
+}

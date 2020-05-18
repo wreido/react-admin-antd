@@ -30,7 +30,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getConfigEnv();
-    console.log(DICT);
   }
 
   // 获取当前环境
