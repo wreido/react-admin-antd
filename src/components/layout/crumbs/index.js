@@ -23,7 +23,7 @@ class Crumbs extends Component {
 
   toMenu = (item) => {
     const { history } = this.props;
-    history.push(`${item.path}`);
+    history.push(`${item.path}?id=1`);
   }
 
   close = (item, event) => {
@@ -33,7 +33,7 @@ class Crumbs extends Component {
   }
 
   render() {
-    const { crumbsList } = this.props;
+    const { crumbsList, location } = this.props;
 
     return (
       <Breadcrumb>
@@ -43,7 +43,7 @@ class Crumbs extends Component {
               <Breadcrumb.Item key={item.title} onClick={this.toMenu.bind(this, item)}>
                 <div className="crumb-title">
                   <span>{item.title}</span>
-                  <span className="close" onClick={this.close.bind(this, item)} onKeyDown={this.close.bind(this, item)}>x</span>
+                  {location.pathname !== item.path && <span className="close" onClick={this.close.bind(this, item)} onKeyDown={this.close.bind(this, item)}>x</span>}
                 </div>
               </Breadcrumb.Item>
             );

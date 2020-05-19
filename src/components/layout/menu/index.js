@@ -27,7 +27,7 @@ class MyMenu extends Component {
 
   setCrumbs = (route) => {
     const { dispatch } = this.props;
-    dispatch(setCrumbs('add', [route]));
+    dispatch(setCrumbs('set', [route]));
   }
 
   renderMenu = (data, isCollapsed) => {
