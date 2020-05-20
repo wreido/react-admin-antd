@@ -23,7 +23,7 @@ export default function login(state = INITIAL_STATE, action) {
         ...state,
         ENV: action.payload.ENV,
       };
-    // 设置当前环境
+    // 设置menu收缩状态
     case SET_IS_COLLAPSED:
       return {
         ...state,
