@@ -7,6 +7,7 @@ import { Table } from 'antd';
 
 // import $fetch, { $api } from '@/api';
 
+import utils from '@/utils';
 import { columns } from './columns/listColimns';
 import './index.less';
 
@@ -38,6 +39,7 @@ class Home extends Component {
 
   componentDidMount() {
     // $fetch($api.bindLeader, { a: 1 });
+    console.log(utils.tofixedExtend(12000000.12365, 3, 'down'));
   }
 
   // 切换分页和条数

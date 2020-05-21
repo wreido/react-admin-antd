@@ -53,4 +53,41 @@ export default {
     return string.slice(0, string.length - 1);
   },
 
+  /**
+   * @Title 数字精确位数处理
+   * @param number 需处理的数字
+   * @param length 精确长度
+   * @param type down(向下保留) up(向上保留) round(四舍五入)
+   */
+  tofixedExtend(number, length = 2, type = "round") {
+    let numberString = String(number)
+    let arry = numberString.split(".")
+    let int = arry[0]
+    let float = arry[1] ? `${arry[1]}` : "0"
+
+    if (float.length < length) {
+      for (let i = 0; i < length + 1; i++) {
+        float = float + "0"
+      }
+    }
+    let newFlag = float.substring(0, length)
+
+    if (type === "down") {
+      return `${int}.${newFlag}`
+    }
+    if (type === "up") {
+      return `${int}.${newFlag.substring(0, length - 1)}${
+        Number(newFlag.substring(length - 1, length)) + 1
+        }`
+    }
+
+    if (type === "round") {
+      let lastFlag =
+        Number(float.substring(length, length + 1)) > 4
+          ? Number(newFlag.substring(length - 1, length)) + 1
+          : Number(newFlag.substring(length - 1, length))
+      return `${int}.${newFlag.substring(0, length - 1)}${lastFlag}`
+    }
+  }
+
 };
