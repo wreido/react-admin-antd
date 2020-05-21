@@ -18,3 +18,5 @@ react-admin-antd/*.js
 static/
 
 deploy.js
+
+utils/
