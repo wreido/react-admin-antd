@@ -1,7 +1,7 @@
 /*
 * 主视图
 */
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import {
   BrowserRouter as Router, Route, Switch, withRouter,
 } from 'react-router-dom';
@@ -48,7 +48,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/login" component={withRouter(Login)} />
             <MyLayout>
-              {RenderRoutes(routes, authed, DICT.AUTH_PATH)}
+              <Suspense fallback={<div>Loading...</div>}>
+                {RenderRoutes(routes, authed, DICT.AUTH_PATH)}
+              </Suspense>
             </MyLayout>
           </Switch>
         </div>

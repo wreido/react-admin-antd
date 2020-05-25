@@ -1,6 +1,12 @@
-import Login from '@/views/login/index';
-import Home from '@/views/home/index';
-import Test from '@/views/test/index';
+import { lazy } from 'react';
+// import Login from '@/views/login/index';
+// import Home from '@/views/home/index';
+// import Test from '@/views/test/index';
+
+const Login = lazy(() => import('@/views/login/index'));
+const Home = lazy(() => import('@/views/home/index'));
+const Test = lazy(() => import('@/views/test/index'));
+
 
 export const main = [
   {
