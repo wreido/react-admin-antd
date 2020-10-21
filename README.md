@@ -1,4 +1,4 @@
-## react-admin-antd([基于 antd 的后台管理模板](http://120.25.73.68:8888/))
+## react-admin-antd(基于 antd 的后台管理模板])
 
 -   [react](https://react.docschina.org/docs/getting-started.html) + [antd](https://ant.design/docs/react/introduce-cn) + [redux](https://www.redux.org.cn) + [react-router-dom](https://blog.csdn.net/debbyDeng/article/details/84555817)([react-router](http://react-guide.github.io/react-router-cn/docs/guides/basics/Histories.html))
 
